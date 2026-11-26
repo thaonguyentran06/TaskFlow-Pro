@@ -1,14 +1,14 @@
-# TaskFlow
-Ứng dụng quản lý công việc minimalist, HTML/CSS/JavaScript ES modules và IndexedDB.
+# BLOOM — Personal Productivity Studio
+HTML/CSS/JavaScript ES modules + IndexedDB. Không cần Node/Python. Upload 5 file vào root nhánh main, Settings > Pages > main / root. Dùng HTTPS GitHub Pages (không mở file:// vì ES modules).
 
-## Triển khai
-Upload index.html, style.css, app.js, db.js và README.md vào root repository Public. Settings > Pages > Deploy from a branch > main > /(root). Không cần Node.js hay Python. Khi chạy local, dùng VS Code Live Server (không mở file trực tiếp vì ES modules).
+## Chức năng
+CRUD, trạng thái, tìm kiếm/lọc/sắp xếp, Kanban (đổi trạng thái bằng select), Eisenhower, lịch tuần, cây ảo 5 giai đoạn, Pomodoro 25 phút, thống kê và heatmap 84 ngày, nhật ký theo ngày, dark mode, xuất JSON.
 
 ## Database
-TaskFlowDB / tasks, khóa chính id. Trường: title, description, deadline, category, priority, status, created. IndexedDB lưu theo origin và trình duyệt, không đồng bộ giữa thiết bị. F12 > Application > IndexedDB để xem dữ liệu. Xuất JSON để lưu bản sao (chưa hỗ trợ nhập lại).
+TaskFlowDB version 2: tasks (id), journal (date), settings (id). Nâng cấp từ version 1 giữ dữ liệu cũ trên cùng origin. Công việc cũ không có completedAt không được tính vào heatmap; không tự tạo lịch sử giả. Cây dựa trên số công việc hiện hoàn thành. Dữ liệu riêng theo trình duyệt/origin, không có server hay đồng bộ. JSON chỉ xuất, không nhập. Timer chạy khi trang còn mở, không lưu phiên đang chạy khi reload. Font Google có fallback offline.
 
-## Kiến trúc
-Browser UI (index.html + style.css) → app.js (logic CRUD, filter, statistics) → db.js (IndexedDB transactions) → TaskFlowDB/tasks.
+## Kiểm thử thủ công
+Tạo việc, sửa, đổi trạng thái, reload, xóa; kiểm tra Kanban, matrix, lịch tuần, heatmap sau khi hoàn thành; lưu nhật ký và reload; thử dark mode, export, timer. DevTools > Application > IndexedDB > TaskFlowDB để xem database.
 
-## Kiểm thử đề xuất
-Tạo công việc, tải lại trang, sửa tên, đổi trạng thái, kiểm tra thống kê, xóa, lọc và tìm kiếm, đổi theme, chạy/tạm dừng/reset Pomodoro, xuất JSON. Kiểm tra giao diện mobile.
+### Rose Final
+Sử dụng Arial/Helvetica cho toàn bộ nội dung tiếng Việt, chuẩn hóa Unicode NFC, không dùng font tải ngoài.
