@@ -1,0 +1,3 @@
+const db = new Promise((resolve,reject)=>{const req=indexedDB.open('TaskFlowDB',1);req.onupgradeneeded=()=>{req.result.createObjectStore('tasks',{keyPath:'id'});};req.onsuccess=()=>resolve(req.result);req.onerror=()=>reject(req.error);});
+async function run(mode,fn){const database=await db;return new Promise((resolve,reject)=>{const tx=database.transaction('tasks',mode);const req=fn(tx.objectStore('tasks'));tx.oncomplete=()=>resolve(req.result);tx.onerror=()=>reject(tx.error);tx.onabort=()=>reject(tx.error);});}
+export const getAll=()=>run('readonly',s=>s.getAll());export const save=t=>run('readwrite',s=>s.put(t));export const remove=id=>run('readwrite',s=>s.delete(id));
