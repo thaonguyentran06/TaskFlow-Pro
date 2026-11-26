@@ -12,3 +12,6 @@ Tạo việc, sửa, đổi trạng thái, reload, xóa; kiểm tra Kanban, matr
 
 ### Rose Final
 Sử dụng Arial/Helvetica cho toàn bộ nội dung tiếng Việt, chuẩn hóa Unicode NFC, không dùng font tải ngoài.
+
+## Cozy edition
+Nunito (Google Fonts, Vietnamese support) with system fallback; animated plant, navigation, progress and completion confetti. Reduced-motion CSS supported. Existing IndexedDB schema retained.
